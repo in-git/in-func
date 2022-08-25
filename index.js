@@ -8,3 +8,13 @@ export function randomInt(max = 0, min = 10) {
 /* 随机十六进制颜色 */
 export const randomHex = () => `#${Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, "0")}`;
 
+
+/* 复制指定文本 */
+export function copyText(text = "") {
+    let _tempdom_ = document.createElement("input");
+    _tempdom_.value = text;
+    document.body.appendChild(_tempdom_);
+    _tempdom_.select();
+    document.execCommand("Copy");
+    _tempdom_.remove();
+}
