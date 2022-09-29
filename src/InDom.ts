@@ -21,7 +21,6 @@ export class InDom {
     static query(el: string) {
         return document.querySelector(el)
     }
-
     /* 获取最大宽度 */
     static maxWidth() {
         return window.innerWidth;
@@ -29,5 +28,9 @@ export class InDom {
     /* 获取最大高度 */
     static maxHeigth() {
         return window.innerHeight;
+    }
+    /* 获取位置 */
+    static getPosition(el: string) {
+        return document.querySelector(el)?.getBoundingClientRect()
     }
 }
