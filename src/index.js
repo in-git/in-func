@@ -12,7 +12,7 @@ export const randomHex = () =>
     .padEnd(6, '0')}`;
 
 /* 复制指定文本 */
-export function copyText(text = '') {
+export const copyText= function (text = '') {
   const tempdom = document.createElement('input');
   tempdom.value = text;
   document.body.appendChild(tempdom);
@@ -100,3 +100,18 @@ export const getType = (obj) => Object.prototype.toString.call(obj).match(/[obje
 
 /* 检测数组中的最大值 */
 export const maxInArr = (arr) => Math.max(...arr);
+
+/* 取dom */
+export const query = function(el){
+    document.querySeleoctor(el)
+}
+/* 获取windows最小宽度 */
+export const maxWidth = function(){
+    return window.innerWidth;
+}
+
+/* 获取windows最大宽度 */
+export const maxHeigth = function(){
+    return window.innerHeight;
+}
+
