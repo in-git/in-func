@@ -6,15 +6,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
 </head>
 
 <body>
-    <script src="./lib/index.js">
-    </script>
+    <canvas id="canvas"></canvas>
+    <!-- <script src="./lib/index.js"></script> -->
+    <script src="./dist/index.umd.min.js"></script>
     <script type="module">
-
-        import { InMath } from "./lib/index.esm.js"
-        console.log(InMath.getMaxWidth());
+        class Line {
+            constructor(opt = {}) {
+                this.x1 = 0;
+                this.y1 = 0;
+                this.x2 = 0;
+                this.y2 = 0;
+                Object.assign(this, opt)
+                this.set()
+            }
+            render(ctx) {
+                var { x1, x2, y1, y2 } = this
+                ctx.save()
+                ctx.beginPath()
+                ctx.moveTo(x1, y1)
+                ctx.lineTo(x2, y2)
+                ctx.stroke()
+                ctx.restore()
+                ctx.closePath()
+            }
+        }
+        Line.prototype.set = function () {
+            for (const key in this) {
+                Line.prototype['set' + key.toUpperCase()] = function (value) {
+                    this[key] = value
+                }
+            }
+        }
+        /** @type {HTMLCanvasElement} */
+        import { InMath, InDom } from "./lib/index.esm.js";
+        const canvas = InDom.query("#canvas");
+        canvas.width = InDom.maxWidth();
+        canvas.height = InDom.maxHeight();
+        const ctx = canvas.getContext("2d")
+        const line = new Line({
+            x1: 0,
+            y1: 0,
+            x2: canvas.width,
+            y2: canvas.height,
+        })
+        line.setX1(100)
+        line.render(ctx)
 
     </script>
 </body>

@@ -1,5 +1,5 @@
 import { InDom } from './InDom';
-import { InColor } from "./InColor";
+import { InUtils } from "./InUtils";
 import { InMath } from "./InMath";
 
-export { InColor, InMath, InDom }
+export { InUtils, InMath, InDom }

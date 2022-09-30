@@ -26,11 +26,16 @@ export class InDom {
         return window.innerWidth;
     }
     /* 获取最大高度 */
-    static maxHeigth() {
+    static maxHeight() {
         return window.innerHeight;
     }
     /* 获取位置 */
     static getPosition(el: string) {
         return document.querySelector(el)?.getBoundingClientRect()
+    }
+    /* 获取css样式 */
+    static getStyle(el: string, parms: string) {
+        var elem = document.querySelector(el) as HTMLElement
+        return getComputedStyle(elem, parms)
     }
 }
