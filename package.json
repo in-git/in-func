@@ -2,7 +2,8 @@
   "name": "in-func",
   "version": "1.2.2",
   "description": "rollup",
-  "main": "dist/index.umd.min.js",
+  "main": "lib/index.js",
+  "module": "lib/index.esm.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c"
@@ -16,16 +17,14 @@
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.1.1",
     "core-js": "^3.20.1",
-    "eslint": "^8.5.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.5.1",
     "rollup": "^2.61.1",
     "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-eslint": "^7.0.0",
-    "rollup-plugin-terser": "^7.0.2"
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.34.0",
+    "typescript": "^4.8.4"
   },
-  "dependencies": {
-    "in-func": "^1.2.0"
-  }
+  "types": "lib/index.d.ts"
 }
